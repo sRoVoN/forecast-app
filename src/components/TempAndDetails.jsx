@@ -85,14 +85,14 @@ export default function TempAndDetails({ weatherData, units }) {
           ))}
         </div>
       </div>
-      <div className="flex flex-row items-center justify-center space-x-10 py-3 text-sm">
+      <div className="flex flex-row items-center justify-center space-x-3 sm:space-x-10 py-3 text-sm">
         {horizantalDetails.map(({ id, Icon, title, value }) => (
           <div key={id} className="flex flex-row items-center">
-            <Icon size={18} className="sm:mr-1 -m-3" />
+            <Icon size={18} className="sm:mr-1 m-0" />
             <p className="font-light ml-1">
             {`${title}`}
             </p>
-            <span className="font-medium sm:ml-1 -m-3">{value}</span>
+            <span className="font-medium sm:ml-1 m-0">{value}</span>
           </div>
         ))}
       </div>
