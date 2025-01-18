@@ -66,10 +66,10 @@ export default function TempAndDetails({ weatherData, units }) {
   ];
   return (
     <div>
-      <div className="flex items-center justify-center text-xl text-cyan-300 py-6">
+      <div className="flex items-center justify-center text-xl text-cyan-300 sm:py-6">
         {description}
       </div>
-      <div className="flex flex-row py-3 items-center justify-between ">
+      <div className="flex flex-row sm:py-3 items-center justify-between ">
         <img src={icon} alt="weather icon" className="w-20" />
         <p className="text-5xl">{`${temp.toFixed()}`}</p>
         <div className="flex flex-col items-start space-y-3">
@@ -88,11 +88,11 @@ export default function TempAndDetails({ weatherData, units }) {
       <div className="flex flex-row items-center justify-center space-x-10 py-3 text-sm">
         {horizantalDetails.map(({ id, Icon, title, value }) => (
           <div key={id} className="flex flex-row items-center">
-            <Icon size={18} className="mr-1" />
+            <Icon size={18} className="sm:mr-1 -m-3" />
             <p className="font-light ml-1">
             {`${title}`}
             </p>
-            <span className="font-medium ml-1">{value}</span>
+            <span className="font-medium sm:ml-1 -m-3">{value}</span>
           </div>
         ))}
       </div>
