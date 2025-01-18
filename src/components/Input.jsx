@@ -18,7 +18,7 @@ export default function Input({ setQuery, setUnits }) {
         }
     }
   return (
-    <div className="flex flex-row justify-center my-6">
+    <div className="flex flex-row justify-center my-2 sm:my-6">
       <div className="flex flex-row justify-center w-3/4 items-center gap-2">
         <input
           type="text"

@@ -6,7 +6,7 @@ export default function TimeAndLocation({
 }) {
     const { name, country } = weatherData;   
   return (
-    <div className="flex items-center justify-center my-6">
+    <div className="flex items-center justify-center my-2 sm:my-6">
         <p className="text-xl font-extralight">{formattedLocalTime}</p>
       <div className="flex items-center justify-center my-6">
       <p className="text-xl font-extralight">{`${name}, ${country}`}</p>

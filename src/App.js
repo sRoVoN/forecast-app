@@ -43,7 +43,7 @@ function App() {
     return "from-yellow-600 to-orange-700";
   }
   return (
-    <div className={`mx-auto max-w-screen-lg mt-4 py-3 px-32 bg-gradient-to-br shadow-xl shadow-gray-400 ${formatBackground()}`} >
+    <div className={`mx-auto max-w-screen-lg mt-4 py-3 px-3 overflow-hidden sm:px-32 bg-gradient-to-br shadow-xl shadow-gray-400 ${formatBackground()}`} >
       <TopButtons setQuery={setQuery} />
       <Input setQuery={setQuery} setUnits={setUnits} />
       {weatherData  && (
