@@ -70,9 +70,9 @@ export default function TempAndDetails({ weatherData, units }) {
         {description}
       </div>
       <div className="flex flex-row sm:py-3 items-center justify-between ">
-        <img src={icon} alt="weather icon" className="w-20" />
+        <img src={icon} alt="weather icon" className="hidden sm:flex w-20" />
         <p className="text-5xl">{`${temp.toFixed()}`}</p>
-        <div className="flex flex-col items-start space-y-3">
+        <div className="flex flex-col items-start space-y-3 overflow-hidden">
           {verticalDetails.map(({ id, Icon, title, value }) => (
             <div
               key={id}
