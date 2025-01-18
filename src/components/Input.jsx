@@ -38,7 +38,7 @@ export default function Input({ setQuery, setUnits }) {
           onClick={handleLocation}
         />
       </div>
-      <div className="w-1/4 flex flex-row items-center justify-center ">
+      <div className="w-1/4 flex flex-col sm:flex-row items-center justify-center ">
         <button className="font-medium text-2xl transition ease-out hover:scale-125"
         onClick={() => setUnits("metric")}
         >
