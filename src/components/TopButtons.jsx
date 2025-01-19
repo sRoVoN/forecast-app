@@ -1,28 +1,7 @@
 import React from 'react'
 
-export default function TopButtons({setQuery}) {
-    const cities = [
-        {
-            id: 1,
-            name: "London",            
-        },
-        {
-            id: 2,
-            name: "Tokyo"
-        },
-        {
-            id: 3,
-            name: "New York"
-        },
-        {
-            id: 4,
-            name: "Paris"
-        },
-        {
-            id: 5,
-            name: "Toronto"
-        }
-    ]
+export default function TopButtons({setQuery, cities}) {
+
   return (
     <div className='flex justify-around  items-center my-6 overflow-auto'>
             {

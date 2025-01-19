@@ -1,22 +1,29 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { BiCurrentLocation, BiSearch } from "react-icons/bi";
 
-export default function Input({ setQuery, setUnits }) {    
-    const [city, setCity] = useState("");
+export default function Input({ setQuery, setUnits, cities, setCities }) {
+  const [city, setCity] = useState("");
+  const addCity = (cityName) => {
+    const newCity = { id: cities.length + 1, name: cityName };
+    setCities((prevCities) => [...prevCities, newCity]);
+  };
+  const handleSearchClick = () => {
+    const capitalizedCity = city.charAt(0).toUpperCase() + city.slice(1);
+    if (city !== "") setQuery({ q: city });
+    if (city.trim()) sessionStorage.setItem("searchedCity", city);
+    addCity(capitalizedCity);
+    setCity("");
+    alert(`City "${capitalizedCity}" saved!`);
+  };
 
-
-    const  handleSearchClick = () => {
-        if (city !== "") setQuery({q: city});
-        setCity("")
-    };
-    const handleLocation = () => {
-        if(navigator.geolocation){
-            navigator.geolocation.getCurrentPosition((position) => {
-              const {latitude, longitude} = position.coords;
-              setQuery({lat: latitude, lon: longitude})
-            })
-        }
+  const handleLocation = () => {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition((position) => {
+        const { latitude, longitude } = position.coords;
+        setQuery({ lat: latitude, lon: longitude });
+      });
     }
+  };
   return (
     <div className="flex flex-row justify-center my-2 sm:my-6">
       <div className="flex flex-row justify-center w-3/4 items-center gap-2">
@@ -39,14 +46,16 @@ export default function Input({ setQuery, setUnits }) {
         />
       </div>
       <div className="w-1/4 flex flex-col sm:flex-row items-center justify-center ">
-        <button className="font-medium text-2xl transition ease-out hover:scale-125"
-        onClick={() => setUnits("metric")}
+        <button
+          className="font-medium text-2xl transition ease-out hover:scale-125"
+          onClick={() => setUnits("metric")}
         >
           °C
         </button>
         <p className="tex-2xl font-medium m-2">|</p>
-        <button className="font-medium text-2xl transition ease-out hover:scale-125"
-        onClick={() => setUnits("imperial")}
+        <button
+          className="font-medium text-2xl transition ease-out hover:scale-125"
+          onClick={() => setUnits("imperial")}
         >
           °F
         </button>

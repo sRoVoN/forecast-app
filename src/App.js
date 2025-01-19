@@ -8,22 +8,43 @@ import TopButtons from './components/TopButtons';
 import Input from './components/Input';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css'; 
+const initialCities = [
+  {
+      id: 1,
+      name: "London",            
+  },
+  {
+      id: 2,
+      name: "Tokyo"
+  },
+  {
+      id: 3,
+      name: "New York"
+  },
+  {
+      id: 4,
+      name: "Paris"
+  },
+  {
+      id: 5,
+      name: "Toronto"
+  }
 
+]
 function App() {
   const [weatherData, setWeatherData] = useState(null);
   const [loading, setLoading] = useState(false);
   const [query, setQuery] = useState({q: "London"});
   const [units, setUnits] = useState("metric");
- 
+  const [cities, setCities] = useState(initialCities); 
+
   const getWeather = async () => {
     try {
       const  message = query.q ? query.q : "current location";
-      toast.info(`Fetching weather data for ${message}`);
       setLoading(true);
       const data = await getFormattedWeatherData({ ...query, units });
 
       setWeatherData(data);
-      toast.success(`Fetchind data for ${data.name}, ${data.country}`)
     } catch (error) {
       console.error("Error fetching weather data:", error);
       toast.error("Failed to fetch weather data. Please try again.");
@@ -44,8 +65,8 @@ function App() {
   }
   return (
     <div className={`mx-auto max-w-screen-lg mt-4 py-3 px-3 overflow-hidden sm:px-32 bg-gradient-to-br shadow-xl shadow-gray-400 ${formatBackground()}`} >
-      <TopButtons setQuery={setQuery} />
-      <Input setQuery={setQuery} setUnits={setUnits} />
+      <TopButtons setQuery={setQuery} cities={cities} />
+      <Input setQuery={setQuery} setUnits={setUnits} cities={cities} setCities={setCities} />
       {weatherData  && (
         <div>
           <TimeAndLocation weatherData={weatherData} />
