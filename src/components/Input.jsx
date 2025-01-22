@@ -45,6 +45,7 @@ export default function Input({ setQuery, setUnits, cities, setCities }) {
           size={30}
           className="transition ease-out hover:scale-125 cursor-pointer"
           onClick={handleSearchClick}
+          onTouchStart={handleSearchClick}
         />
         <BiCurrentLocation
           size={30}
