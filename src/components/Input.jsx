@@ -3,21 +3,23 @@ import { BiCurrentLocation, BiSearch } from "react-icons/bi";
 
 export default function Input({ setQuery, setUnits, cities, setCities }) {
   const [city, setCity] = useState("");
-  // const addCity = (cityName) => {
-  //   const newCity = { id: cities.length + 1, name: cityName };
-  //   setCities((prevCities) => [...prevCities, newCity]);
-  // };
+
   const addCity = (cityName) => {
-    cities.push({
-      id: cities.length ++,
+     const newCity=  cities
+     .push({
+      id: cities.length +1,
       name: cityName,
-    })
+    });
   }
+  useEffect(() => {
+    const data = sessionStorage.getItem("cities");
+    if (data !== null)  setCities(JSON.parse(data));
+  },[])
   const handleSearchClick = () => {
     const capitalizedCity = city.charAt(0).toUpperCase() + city.slice(1);
     if (city !== "") setQuery({ q: city });
-    if (city.trim()) sessionStorage.setItem("searchedCity", city);
     addCity(capitalizedCity);
+    if (city !== "") sessionStorage.setItem("cities", JSON.stringify(cities));
     setCity("");
   };
 
