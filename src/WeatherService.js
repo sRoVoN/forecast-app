@@ -26,7 +26,7 @@ const formatcurrent = (data) => {
     } = data;
     const icon = weather && weather[0] ? weather[0].icon : null;
     const description = weather && weather[0] ? weather[0].description : null;
-    console.log(description);
+
     return{
         lat,
         lon,

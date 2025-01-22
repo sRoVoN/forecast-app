@@ -17,7 +17,6 @@ export default function TempAndDetails({ weatherData, units }) {
     feels_like,
     description
   } = weatherData;
-  console.log(units);
   const verticalDetails = [
     {
       id: 1,

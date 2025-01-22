@@ -36,7 +36,7 @@ function App() {
   const [loading, setLoading] = useState(false);
   const [query, setQuery] = useState({q: "London"});
   const [units, setUnits] = useState("metric");
-  const [cities, setCities] = useState(initialCities); 
+  const [cities, setCities] = useState(initialCities, sessionStorage.getItem("searchedCity")); 
 
   const getWeather = async () => {
     try {
@@ -65,7 +65,7 @@ function App() {
   }
   return (
     <div className={`mx-auto max-w-screen-lg mt-4 py-3 px-3 overflow-hidden sm:px-32 bg-gradient-to-br shadow-xl shadow-gray-400 ${formatBackground()}`} >
-      <TopButtons setQuery={setQuery} cities={cities} />
+      <TopButtons setQuery={setQuery} cities={cities} setCities={setCities} />
       <Input setQuery={setQuery} setUnits={setUnits} cities={cities} setCities={setCities} />
       {weatherData  && (
         <div>
