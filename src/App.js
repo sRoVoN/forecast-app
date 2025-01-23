@@ -104,7 +104,6 @@ function App() {
               hideProgressBar={true}
               theme="colored"
             />
-            )
           </div>
         </>
       )}
