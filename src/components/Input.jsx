@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { BiCurrentLocation, BiSearch } from "react-icons/bi";
 
-export default function Input({ setQuery, setUnits, cities, setCities }) {
+export default function Input({ setQuery, setUnits, cities, setCities, loading }) {
   const [city, setCity] = useState("");
 
 
@@ -58,21 +58,21 @@ export default function Input({ setQuery, setUnits, cities, setCities }) {
           onClick={handleLocation}
         />
       </div>
-      <div className="w-1/4 flex flex-col sm:flex-row items-center justify-center ">
-        <button
-          className="font-medium text-2xl transition ease-out hover:scale-125"
-          onClick={() => setUnits("metric")}
-        >
-          °C
-        </button>
-        <p className="tex-2xl font-medium m-2">|</p>
-        <button
-          className="font-medium text-2xl transition ease-out hover:scale-125"
-          onClick={() => setUnits("imperial")}
-        >
-          °F
-        </button>
-      </div>
+          <div className="w-1/4 flex flex-col sm:flex-row items-center justify-center ">
+          <button
+            className="font-medium text-2xl transition ease-out hover:scale-125"
+            onClick={() => setUnits("metric")}
+          >
+            °C
+          </button>
+          <p className="tex-2xl font-medium m-2">|</p>
+          <button
+            className="font-medium text-2xl transition ease-out hover:scale-125"
+            onClick={() => setUnits("imperial")}
+          >
+            °F
+          </button>
+        </div>
     </div>
   );
 }
