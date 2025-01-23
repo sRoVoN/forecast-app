@@ -4,6 +4,7 @@ import { BiCurrentLocation, BiSearch } from "react-icons/bi";
 export default function Input({ setQuery, setUnits, cities, setCities }) {
   const [city, setCity] = useState("");
 
+
   const addCity = (cityName) => {
      const newCity=  cities
      .push({
@@ -15,6 +16,7 @@ export default function Input({ setQuery, setUnits, cities, setCities }) {
     const data = sessionStorage.getItem("cities");
     if (data !== null)  setCities(JSON.parse(data));
   },[])
+
   const handleSearchClick = () => {
     const capitalizedCity = city.charAt(0).toUpperCase() + city.slice(1);
     if (city !== "") setQuery({ q: city });
@@ -22,6 +24,9 @@ export default function Input({ setQuery, setUnits, cities, setCities }) {
     if (city !== "") sessionStorage.setItem("cities", JSON.stringify(cities));
     setCity("");
   };
+  const keydownHandler = (e) => {
+ if(e.key === "Enter") handleSearchClick()
+  }
 
   const handleLocation = () => {
     if (navigator.geolocation) {
@@ -38,14 +43,14 @@ export default function Input({ setQuery, setUnits, cities, setCities }) {
           type="text"
           value={city}
           onChange={(e) => setCity(e.currentTarget.value)}
-          placeholder="Search by city"
+          onKeyDown={(e) => keydownHandler(e)}
+          placeholder="Search by city"          
           className="text-xl text-gray-500 focus:outline-none placeholder:lowercase capitalize shadow-xl font=light w-full p-2 "
         />
         <BiSearch
           size={30}
           className="transition ease-out hover:scale-125 cursor-pointer"
           onClick={handleSearchClick}
-          onTouchStart={handleSearchClick}
         />
         <BiCurrentLocation
           size={30}
