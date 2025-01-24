@@ -37,8 +37,8 @@ export default function Input({ setQuery, setUnits, cities, setCities, loading }
     }
   };
   return (
-    <div className="flex flex-row justify-center my-2 sm:my-6">
-      <div className="flex flex-row justify-center w-3/4 items-center gap-2">
+    <div className="flex flex-col sm:flex-row justify-center my-2 sm:my-6">
+      <div className="flex flex-row justify-center w-full dm:w-3/4 items-center gap-2">
         <input
           type="text"
           value={city}
@@ -58,7 +58,7 @@ export default function Input({ setQuery, setUnits, cities, setCities, loading }
           onClick={handleLocation}
         />
       </div>
-          <div className="w-1/4 flex flex-col sm:flex-row items-center justify-center ">
+          <div className="w-1/4 flex flex-row items-center justify-center mx-auto">
           <button
             className="font-medium text-2xl transition ease-out hover:scale-125"
             onClick={() => setUnits("metric")}

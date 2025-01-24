@@ -7,7 +7,7 @@ import TopButtons from "./components/TopButtons";
 import Input from "./components/Input";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { ScaleLoader } from 'react-spinners'
+import { ScaleLoader } from "react-spinners";
 import Spinner from "./components/Spinner";
 const initialCities = [
   {
@@ -58,7 +58,7 @@ function App() {
 
   useEffect(() => {
     getWeather();
-    console.log(loading)
+    console.log(loading);
   }, [query, units]); // Empty dependency array to run only once when the component mounts
 
   const formatBackground = () => {
@@ -69,44 +69,29 @@ function App() {
   };
   return (
     <>
-      {loading ? (
-        <Spinner />
-      ): (
-        <>
-          <div
-            className={`mx-auto max-w-screen-lg mt-4 py-3 px-3 overflow-hidden sm:px-32 bg-gradient-to-br shadow-xl shadow-gray-400 ${formatBackground()}`}
-          >
-            <TopButtons
-              setQuery={setQuery}
-              cities={cities}
-              setCities={setCities}
-            />
-            <Input
-              setQuery={setQuery}
-              setUnits={setUnits}
-              cities={cities}
-              setCities={setCities}
-              loading={loading}
-            />
-            {weatherData && (
-              <div>
-                <TimeAndLocation weatherData={weatherData} />
-                <TempAndDetails weatherData={weatherData} units={units} />
-                <Forecast
-                  title="3 hours step forecast"
-                  data={weatherData.hourly}
-                />
-                <Forecast title="daily forecast" data={weatherData.daily} />
-              </div>
-            )}
-            <ToastContainer
-              autoClose={3000}
-              hideProgressBar={true}
-              theme="colored"
-            />
+      <div className="mx-auto max-w-screen-lg mt-4 py-3 px-3 overflow-hidden sm:px-32 bg-gradient-to-br shadow-xl shadow-gray-400">
+        <TopButtons setQuery={setQuery} cities={cities} setCities={setCities} />
+        <Input
+          setQuery={setQuery}
+          setUnits={setUnits}
+          cities={cities}
+          setCities={setCities}
+          loading={loading}
+        />
+        {weatherData && (
+          <div>
+            <TimeAndLocation weatherData={weatherData} />
+            <TempAndDetails weatherData={weatherData} units={units} />
+            <Forecast title="3 hours step forecast" data={weatherData.hourly} />
+            <Forecast title="daily forecast" data={weatherData.daily} />
           </div>
-        </>
-      )}
+        )}
+        <ToastContainer
+          autoClose={3000}
+          hideProgressBar={true}
+          theme="colored"
+        />
+      </div>
     </>
   );
 }
