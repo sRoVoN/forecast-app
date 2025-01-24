@@ -66,7 +66,7 @@ export default function TopButtons({ setQuery, cities, setCities }) {
       ))}
       {cities.map((city) => (
         <button
-          className="flex  w-20 h-10 justify-center items-center mx-auto overflow-scroll bg-transparent"
+          className="flex justify-center items-center mx-auto overflow-scroll bg-transparent "
           key={city.id}
           onClick={() => handleButton(city.name)}
         >
