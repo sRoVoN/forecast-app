@@ -4,6 +4,7 @@ import { BiSolidDropletHalf } from "react-icons/bi";
 import { FiWind } from "react-icons/fi";
 import { GiSunrise, GiSunset } from "react-icons/gi";
 import { MdKeyboardArrowDown, MdKeyboardArrowUp } from "react-icons/md";
+
 export default function TempAndDetails({ weatherData, units }) {
   const {
     icon,

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import  { useState, useEffect } from "react";
 import getFormattedWeatherData from "./WeatherService";
 import TimeAndLocation from "./components/TimeAndLocation";
 import TempAndDetails from "./components/TempAndDetails";
@@ -7,8 +7,7 @@ import TopButtons from "./components/TopButtons";
 import Input from "./components/Input";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { ScaleLoader } from "react-spinners";
-import Spinner from "./components/Spinner";
+
 const initialCities = [
   {
     id: 1,
@@ -58,15 +57,14 @@ function App() {
 
   useEffect(() => {
     getWeather();
-    console.log(loading);
   }, [query, units]); // Empty dependency array to run only once when the component mounts
 
-  const formatBackground = () => {
-    if (!weatherData) return "from-cyan-600 to-blue-700";
-    const threshold = units === "metric" ? 20 : 60;
-    if (weatherData.temp <= threshold) return "from-cyan-600 to-blue-700";
-    return "from-yellow-600 to-orange-700";
-  };
+  // const formatBackground = () => {
+  //   if (!weatherData) return "from-cyan-600 to-blue-700";
+  //   const threshold = units === "metric" ? 20 : 60;
+  //   if (weatherData.temp <= threshold) return "from-cyan-600 to-blue-700";
+  //   return "from-yellow-600 to-orange-700";
+  // };
   return (
     <>
       <div className="mx-auto max-w-screen-lg mt-4 py-3 px-3 overflow-hidden sm:px-32 bg-gradient-to-br shadow-xl shadow-gray-400">

@@ -45,7 +45,7 @@ export default function Input({ setQuery, setUnits, cities, setCities, loading }
           onChange={(e) => setCity(e.currentTarget.value)}
           onKeyDown={(e) => keydownHandler(e)}
           placeholder="Search by city"          
-          className="text-xl text-gray-500 focus:outline-none placeholder:lowercase capitalize shadow-xl font=light w-full p-2 "
+          className="text-xl text-gray-500 focus:outline-none placeholder:lowercase capitalize shadow-xl font=light w-full p-2 rounded-md "
         />
         <BiSearch
           size={30}
