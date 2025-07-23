@@ -33,7 +33,7 @@ export default function TopButtons({
   };
 
   return (
-    <div className="flex justify-center py-4 gap-2  overflow-scroll">
+    <div className="flex justify-center py-4 gap-2  overflow-x-auto no-scrollbar">
       {cities.map((city, index) => (
         <div
           key={city.id}
