@@ -1,6 +1,8 @@
 # 🌦️ Weather App
 
-A responsive and modern weather application built with **React**, **Tailwind CSS**, and the **OpenWeatherMap API**. It allows users to search for real-time weather data and view a detailed daily and hourly forecast.
+A modern, responsive weather application built with **React**, **Tailwind CSS**, and the free **OpenWeatherMap API**.
+
+Users can check the current weather of different cities, add their own custom city, or use their **current location** to see local weather instantly.
 
 ## 📸 Preview
 
@@ -15,7 +17,7 @@ A responsive and modern weather application built with **React**, **Tailwind CSS
 - ➕ Add **one custom city** of your choice
 - 📅 5-day forecast with icons and temperature
 - 📱 Mobile responsive design using Tailwind CSS
-- 🌓 Light/dark friendly layout
+- 🧭 Detect and show weather for the **user's current location**
 - 🌐 Units switchable between metric and imperial (if implemented)
 
 ---
@@ -25,6 +27,7 @@ A responsive and modern weather application built with **React**, **Tailwind CSS
 - **React**
 - **Tailwind CSS**
 - **OpenWeatherMap API**
+- HTML5 Geolocation API (for user location)
 - `sessionStorage` for storing custom city
 
 ---
@@ -35,7 +38,8 @@ A responsive and modern weather application built with **React**, **Tailwind CSS
 
    ```bash
    git clone https://github.com/sRoVoN/forecast-app.git
-   cd weather-app
+   cd forecast-app
+
    ```
 
 2. **Install dependencies**:
@@ -81,6 +85,7 @@ src/
 
 ## 📝 Custom City Logic
 
+- The app tries to get the user’s **current location** using the browser’s Geolocation API.
 - Users can add **one** custom city using the input field.
 - The city is stored in `sessionStorage` under the key `customCity`.
 - On reload, the custom city will still appear in the city buttons.
