@@ -53,7 +53,7 @@ Users can check the current weather of different cities, add their own custom ci
    Create a `.env` file in the root of the project and add your API key:
 
    ```
-   VITE_API_KEY=your_openweather_api_key
+   VITE_API_KEY= "ad1638d70d18524d5c67056b3e47f843";
    ```
 
 4. **Start the development server**:
